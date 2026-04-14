@@ -54,4 +54,25 @@ public class BrokerDeEventos extends Thread{
         this.eventosTotales = eventosTotales;
     }
 
+    public void run(){
+
+        for (int i = 0; i < eventosTotales; i++) {
+
+           
+            contador++;
+            Evento evento = buzonEntrada.eliminarEvento();
+
+            if (evento.getSeudoaleatorio() % 8 == 0) {
+                buzonFalla.poner(evento);
+            } else {
+                buzonPasa.poner(evento);
+            }
+     
+        }
+
+        Evento eventoFin = new Evento(-1, 0, true, 0);
+        buzonFalla.poner(eventoFin);
+
+    }
+
 }

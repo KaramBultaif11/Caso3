@@ -59,4 +59,10 @@ public class Buzon {
         return evento;
     }
 
+    public synchronized void obtenerEvento(){
+
+        return eventos.get(0);
+
+    }
+
 }
