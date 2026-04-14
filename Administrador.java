@@ -44,4 +44,10 @@ public class Administrador extends Thread{
         this.eventosFin = eventosFin;
     }
 
+    public void run() {
+
+        
+
+    }
+
 }
