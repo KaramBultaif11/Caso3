@@ -1,5 +1,3 @@
-import Math;
-
 public class Sensor extends Thread{
 
     private int id;
@@ -14,11 +12,11 @@ public class Sensor extends Thread{
         this.numeroServidores = numeroServidores;
     }
 
-    public int getId() {
+    public int getIdSensor() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setIdSensor(int id) {
         this.id = id;
     }
 
@@ -45,7 +43,7 @@ public class Sensor extends Thread{
             int numeroAleatorio = (int) (Math.random() * numeroServidores) + 1;
             int idEvento = this.id * 100 + i;
             Evento evento = new Evento (idEvento, numeroAleatorio, esFin, numeroServidores);
-            buzonEntrada.poner(evento);
+            buzonEntrada.agregarEvento(evento);
         }
     }
 

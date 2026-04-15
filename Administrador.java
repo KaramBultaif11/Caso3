@@ -50,7 +50,7 @@ public class Administrador extends Thread{
 
         Evento eventoAnalisis = buzonEntrada.eliminarEvento(); 
 
-        while (!eventoAnalisis.getEsFin()){
+        while (!eventoAnalisis.isEsFin()){
 
             this.eventosFin++;
 
@@ -58,7 +58,7 @@ public class Administrador extends Thread{
 
             if (numeroAleatorio % 4 == 0){
 
-                buzonClasificacion.poner(eventoAnalisis);
+                buzonClasificacion.agregarEvento(eventoAnalisis);
 
             }
 
@@ -68,7 +68,7 @@ public class Administrador extends Thread{
 
         for (int i = 0; i < nc; i++) {
             Evento eventoFin = new Evento(-1, 0, true, 0);
-            buzonClasificacion.poner(eventoFin);
+            buzonClasificacion.agregarEvento(eventoFin);
         }
 
     }

@@ -1,21 +1,21 @@
 public class Servidor extends Thread{
 
-    private int id;
+    private int idServidor;
     private Buzon buzonConsolidacion;
     private int eventosRecibidos;
 
-    public Servidor(int id, Buzon buzonConsolidacion, int eventosRecibidos) {
-        this.id = id;
+    public Servidor(int idServidor, Buzon buzonConsolidacion, int eventosRecibidos) {
+        this.idServidor = idServidor;
         this.buzonConsolidacion = buzonConsolidacion;
         this.eventosRecibidos = eventosRecibidos;
     }
 
-    public int getId() {
-        return id;
+    public int getIdServidor() {
+        return idServidor;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdServidor(int id) {
+        this.idServidor = id;
     }
 
     public Buzon getBuzonConsolidacion() {

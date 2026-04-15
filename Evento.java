@@ -39,4 +39,20 @@ public class Evento{
         this.esFin = esFin;
     }
 
+    public int getNs() {
+        return ns;
+    }
+
+    public void setNs(int ns) {
+        this.ns = ns;
+    }
+
+    public int getServidorAsignado() {
+        return servidorAsignado;
+    }
+
+    public void setServidorAsignado(int servidorAsignado) {
+        this.servidorAsignado = servidorAsignado;
+    }
+
 }

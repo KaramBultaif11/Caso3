@@ -46,7 +46,7 @@ public class Buzon {
 
     public synchronized Evento eliminarEvento() {
 
-        while(evnetos.isEmpty()) {
+        while(eventos.isEmpty()) {
             try {
                 wait();
             } catch (InterruptedException e) {
@@ -59,7 +59,7 @@ public class Buzon {
         return evento;
     }
 
-    public synchronized void obtenerEvento(){
+    public synchronized Evento obtenerEvento(){
 
         return eventos.get(0);
 

@@ -63,15 +63,15 @@ public class BrokerDeEventos extends Thread{
             Evento evento = buzonEntrada.eliminarEvento();
 
             if (evento.getSeudoaleatorio() % 8 == 0) {
-                buzonFalla.poner(evento);
+                buzonFalla.agregarEvento(evento);
             } else {
-                buzonPasa.poner(evento);
+                buzonPasa.agregarEvento(evento);
             }
      
         }
 
         Evento eventoFin = new Evento(-1, 0, true, 0);
-        buzonFalla.poner(eventoFin);
+        buzonFalla.agregarEvento(eventoFin);
 
     }
 
