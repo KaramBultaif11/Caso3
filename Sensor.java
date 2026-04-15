@@ -44,7 +44,7 @@ public class Sensor extends Thread{
             boolean esFin = false;
             int numeroAleatorio = (int) (Math.random() * numeroServidores) + 1;
             int idEvento = this.id * 100 + i;
-            Evento evento = new Evento (idEvento, numeroAleatorio, esFin);
+            Evento evento = new Evento (idEvento, numeroAleatorio, esFin, numeroServidores);
             buzonEntrada.poner(evento);
         }
     }

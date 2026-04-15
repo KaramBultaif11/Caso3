@@ -4,11 +4,15 @@ public class Evento{
     private int id;
     private int seudoaleatorio;
     private boolean esFin;
+    private int ns;
+    private int servidorAsignado;
 
-    public Evento(int id, int seudoaleatorio, boolean esFin) {
+    public Evento(int id, int seudoaleatorio, boolean esFin, int ns) {
         this.id = id;
         this.seudoaleatorio = seudoaleatorio;
         this.esFin = esFin;
+        this.ns = ns;
+        this.servidorAsignado = (int) (Math.random() * ns);
     }
 
     public int getId() {

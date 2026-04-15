@@ -4,12 +4,14 @@ public class Administrador extends Thread{
     private Buzon buzonEntrada;
     private Buzon buzonClasificacion;
     private int eventosFin;
+    private int nc;
 
-    public Administrador(boolean inicio, Buzon buzonEntrada, Buzon buzonClasificacion, int eventosFin) {
+    public Administrador(boolean inicio, Buzon buzonEntrada, Buzon buzonClasificacion, int eventosFin, int nc) {
         this.inicio = inicio;
         this.buzonEntrada = buzonEntrada;
         this.buzonClasificacion = buzonClasificacion;
         this.eventosFin = eventosFin;
+        this.nc = nc;
     }
 
     public boolean isInicio() {
@@ -64,8 +66,10 @@ public class Administrador extends Thread{
 
         }
 
-        Evento eventoFin = new Evento(-1, 0, true, 0);
-        buzonClasificacion.poner(eventoFin);
+        for (int i = 0; i < nc; i++) {
+            Evento eventoFin = new Evento(-1, 0, true, 0);
+            buzonClasificacion.poner(eventoFin);
+        }
 
     }
 
