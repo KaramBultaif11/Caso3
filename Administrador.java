@@ -46,7 +46,26 @@ public class Administrador extends Thread{
 
     public void run() {
 
-        
+        Evento eventoAnalisis = buzonEntrada.eliminarEvento(); 
+
+        while (!eventoAnalisis.getEsFin()){
+
+            this.eventosFin++;
+
+            int numeroAleatorio = (int) (Math.random() * 20);
+
+            if (numeroAleatorio % 4 == 0){
+
+                buzonClasificacion.poner(eventoAnalisis);
+
+            }
+
+            eventoAnalisis = buzonEntrada.eliminarEvento();
+
+        }
+
+        Evento eventoFin = new Evento(-1, 0, true, 0);
+        buzonClasificacion.poner(eventoFin);
 
     }
 
