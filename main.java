@@ -2,8 +2,15 @@ import java.io.BufferedReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.CyclicBarrier;
-
 public class main {
+    public static void imprimirEventosEnServidor(HashMap<Integer, Servidor> servidores) {
+        for (Servidor servidor : servidores.values()) {
+            System.out.println("Servidor " + servidor.getIdServidor() + " recibió los siguientes eventos:");
+            for (Evento evento : servidor.getBuzonConsolidacion().getEventos()) {
+                System.out.println("Evento ID: " + evento.getId() + ", Seudoaleatorio: " + evento.getSeudoaleatorio() + ", EsFin: " + evento.isEsFin());
+            }
+        }
+    }
     
     public static void main(String[] args) {
 
@@ -44,17 +51,19 @@ public class main {
         Buzon buzonFalla = new Buzon(new ArrayList<>(), capacidadBuzon);
         Buzon buzonPasa = new Buzon(new ArrayList<>(), capacidadBuzon);
 
-        BrokerDeEventos brokerDeEventos = new BrokerDeEventos(buzonEntrada, buzonFalla, buzonPasa, totalEventos, nc);
+        BrokerDeEventos brokerDeEventos = new BrokerDeEventos(buzonEntrada, buzonFalla, buzonPasa, totalEventos);
         Administrador administrador = new Administrador(false, buzonFalla, buzonPasa, 0, nc);
 
 
         for (int i = 0; i < numeroSensor; i++) {
-                Sensor sensor = new Sensor(i+1, numeroEventoPorSensor * (i+1), buzonEntrada, ns);
+                Sensor sensor = new Sensor(i+1, numeroEventoPorSensor, buzonEntrada, ns);
                 sensor.start();
-            }
+        }
 
-        administrador.start();
         brokerDeEventos.start();
+        System.out.println("Administrador iniciando...");
+        administrador.start();
+
 
         HashMap<Integer, Servidor> servidores = new HashMap<>();
 
@@ -83,6 +92,8 @@ public class main {
         for (Servidor servidor : servidores.values()) {
             servidor.getBuzonConsolidacion().agregarEvento(new Evento(-1, 0, true, 0));
         }  
+        imprimirEventosEnServidor(servidores);
+
 
 
     }

@@ -45,7 +45,6 @@ public class Buzon {
     }
 
     public synchronized Evento eliminarEvento() {
-
         while(eventos.isEmpty()) {
             try {
                 wait();
@@ -53,9 +52,9 @@ public class Buzon {
                 e.printStackTrace();
             }
         }
-        
+
         Evento evento = eventos.remove(0);
-        notify();
+        notifyAll();
         return evento;
     }
 

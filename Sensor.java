@@ -43,6 +43,7 @@ public class Sensor extends Thread{
             int numeroAleatorio = (int) (Math.random() * numeroServidores) + 1;
             int idEvento = this.id * 100 + i;
             Evento evento = new Evento (idEvento, numeroAleatorio, esFin, numeroServidores);
+            System.out.println("Sensor " + id + " generó el evento " + evento.getId() + " con seudoaleatorio " + evento.getSeudoaleatorio() + " y servidor asignado " + evento.getServidorAsignado());
             buzonEntrada.agregarEvento(evento);
         }
     }

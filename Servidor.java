@@ -33,5 +33,14 @@ public class Servidor extends Thread{
     public void setEventosRecibidos(int eventosRecibidos) {
         this.eventosRecibidos = eventosRecibidos;
     }
+    public void run() {
+        int tiempoProcesamiento = (int) (Math.random() * 1000);
+        try {
+            Thread.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        
+    }
+    }
 
 }

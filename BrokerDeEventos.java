@@ -6,11 +6,11 @@ public class BrokerDeEventos extends Thread{
     private int contador;
     private int eventosTotales;
 
-    public BrokerDeEventos(Buzon buzonEntrada, Buzon buzonFalla, Buzon buzonPasa, int contador, int eventosTotales) {
+    public BrokerDeEventos(Buzon buzonEntrada, Buzon buzonFalla, Buzon buzonPasa, int eventosTotales) {
         this.buzonEntrada = buzonEntrada;
         this.buzonFalla = buzonFalla;
         this.buzonPasa = buzonPasa;
-        this.contador = contador;
+        this.contador = 0;
         this.eventosTotales = eventosTotales;
     }
 
@@ -58,7 +58,7 @@ public class BrokerDeEventos extends Thread{
 
         for (int i = 0; i < eventosTotales; i++) {
 
-           
+            System.out.println(i);
             contador++;
             Evento evento = buzonEntrada.eliminarEvento();
 
@@ -72,6 +72,7 @@ public class BrokerDeEventos extends Thread{
 
         Evento eventoFin = new Evento(-1, 0, true, 0);
         buzonFalla.agregarEvento(eventoFin);
+        buzonPasa.agregarEvento(eventoFin);
 
     }
 
