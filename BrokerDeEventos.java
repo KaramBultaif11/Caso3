@@ -58,7 +58,7 @@ public class BrokerDeEventos extends Thread{
 
         for (int i = 0; i < eventosTotales; i++) {
 
-            System.out.println(i);
+
             contador++;
             Evento evento = buzonEntrada.eliminarEvento();
 
