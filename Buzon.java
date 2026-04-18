@@ -58,10 +58,4 @@ public class Buzon {
         return evento;
     }
 
-    public synchronized Evento obtenerEvento(){
-
-        return eventos.get(0);
-
-    }
-
 }
