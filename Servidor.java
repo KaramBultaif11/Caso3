@@ -36,7 +36,7 @@ public class Servidor extends Thread{
     public void run() {
         int tiempoProcesamiento = (int) (Math.random() * 1000);
         try {
-            Thread.sleep(1);
+            Thread.sleep(tiempoProcesamiento);
         } catch (InterruptedException e) {
             e.printStackTrace();
         
