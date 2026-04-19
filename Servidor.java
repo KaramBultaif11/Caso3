@@ -34,12 +34,16 @@ public class Servidor extends Thread{
         this.eventosRecibidos = eventosRecibidos;
     }
     public void run() {
-        int tiempoProcesamiento = (int) (Math.random() * 1000);
-        try {
-            Thread.sleep(tiempoProcesamiento);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        
+        Evento evento = buzonConsolidacion.eliminarEvento();
+        while (evento.isEsFin() == false) {
+            System.out.println("Servidor " + idServidor + " procesó el evento " + evento.getId() + " con seudoaleatorio " + evento.getSeudoaleatorio() + " y servidor asignado " + evento.getServidorAsignado());
+            evento = buzonConsolidacion.eliminarEvento();
+            int tiempoProcesamiento = (int) (Math.random() * 1000);
+            try {
+                Thread.sleep(tiempoProcesamiento);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
     }
     }
 

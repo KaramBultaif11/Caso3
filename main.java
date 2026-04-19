@@ -3,17 +3,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.CyclicBarrier;
  
-public class main {
- 
-    public static void imprimirEventosEnServidor(HashMap<Integer, Servidor> servidores) {
-        for (Servidor servidor : servidores.values()) {
-            System.out.println("Servidor " + servidor.getIdServidor() + " recibió los siguientes eventos:");
-            for (Evento evento : servidor.getBuzonConsolidacion().getEventos()) {
-                System.out.println("Evento ID: " + evento.getId() + ", Seudoaleatorio: " + evento.getSeudoaleatorio() + ", EsFin: " + evento.isEsFin());
-            }
-        }
-    }
- 
+public class main { 
     public static void main(String[] args) {
  
         BufferedReader br = new BufferedReader(new java.io.InputStreamReader(System.in));
@@ -93,7 +83,7 @@ public class main {
             servidor.getBuzonConsolidacion().agregarEvento(new Evento(-1, 0, true, 0));
         }
  
-        imprimirEventosEnServidor(servidores);
+
     }
 }
  
